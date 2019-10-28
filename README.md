@@ -1,24 +1,23 @@
-# README
+# V1 The Gossip Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pour lancer l'app, installe le repo en local, lance ton serveur avec shotgun, et rends toi sur localhost:numero_de_port :)
 
-Things you may want to cover:
+## Page d'accueil
 
-* Ruby version
+Accueil le visiteur, affiche un menu et la liste des gossips dans la bdd qui peuvent être consultés
 
-* System dependencies
+## Page Team
 
-* Configuration
+Page qui présentera les contributeurs de ce projet
 
-* Database creation
+## Page Contact
 
-* Database initialization
+Page qui présentera les informations de contact
 
-* How to run the test suite
+## Page Gossip
 
-* Services (job queues, cache servers, search engines, etc.)
+Affiche le numéro du gossip sélectionné et son contenu ainsi que l'auteur
 
-* Deployment instructions
+## Page auteur
 
-* ...
+Affiche le nom d'un auteur ainsi que sa bio

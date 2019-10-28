@@ -4,6 +4,7 @@ class DynamicPageController < ApplicationController
   end
 
   def home
-    
+
   end
+
 end

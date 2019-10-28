@@ -1,0 +1,6 @@
+<div class="contain">
+<h1 class="py-4">Voici le gossip numero <%= params[:id] %></h1>
+
+<p> <%= Gossip.all[params[:id].to_i-1].content %> </p>
+<p>Posté par <%= Gossip.all[params[:id].to_i-1].user.first_name %> </p>
+</div>

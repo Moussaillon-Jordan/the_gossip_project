@@ -1,8 +1,39 @@
-<h1>Bienvenue, <%= @first_name %> </h1>
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light display-4 text-light">Bienvenue,
+          <%= @first_name %>
+        </h1>
+        <p class="lead text-light">En manque de potins ? tu vas être servi.e !</p>
+      </div>
+    </div>
+  </div>
+</header>
 
-<p>Voci notre super site de potinage</p>
+<div class="row" style="padding: 2% 12%;">
 
-<% Gossip.all.each do |gossip| %>
-  <%= gossip.title %>
-  <%=  gossip.user.first_name%>
-<% end %>
+  <% Gossip.all.each do |gossip| %>
+
+    <div class="col-lg-3 mb-3 p-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= gossip.title %>
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <%= gossip.created_at.strftime('%a %d %b') %>
+          </h6>
+          <p class="card-text">
+            <%= gossip.content[0..30] %>...
+          </p>
+          <a href="/gossip/<%=gossip.id%>" class="card-link read-btn text-ligth">Lire plus</a>
+
+          <a href="/author/<%=gossip.user.id%>" class="card-link">Posté par
+            <%=gossip.user.first_name%></a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>

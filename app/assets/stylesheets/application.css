@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+.contain {
+  padding: 2%;
+}
+
+.read-btn {
+  padding: 8px;
+  background: #e66465;
+  border-radius: 4px;
+  color: white;
+}

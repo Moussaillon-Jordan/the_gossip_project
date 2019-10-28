@@ -1,0 +1,5 @@
+<div class="contain">
+<h1 class="py-4">Voici l'auteur <%= User.all[params[:id].to_i-1].first_name %> </h1>
+<p>Bio:</p>
+<p> <%= User.all[params[:id].to_i-1].description %> </p>
+</div>
