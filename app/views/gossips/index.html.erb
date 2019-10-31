@@ -1,22 +1,24 @@
 
 <% if @gossip !=nil%>
-  <div class="alert alert-success" role="alert">
+  <div class="alert alert-success m-0 px-3 text-center" role="alert">
       <%= "Votre Gossip a bien été enregistré" %>
   </div>
   <%end%>
 
   <header class="masthead">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12 text-center">
-        <h1 class="font-weight-light display-4 text-light">Bienvenue,  <%= @first_name %>
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+          <h1 class="font-weight-light display-4 text-light">The B*tching Project
 
-        </h1>
-        <p class="lead text-light">En manque de potins ? tu vas être servi.e !</p>
+          </h1>
+          <p class="lead text-light">En manque de Gossips ? tu vas être servi.e !</p>
+          <a href="/gossips/new"><button type="button" class="btn btn-lg btn-secondary">Ajouter un potin</button></a>
+
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
 <div class="row" style="padding: 2% 12%;">
 
@@ -36,7 +38,7 @@
           </p>
           <a href="/gossips/<%=gossip.id%>" class="card-link read-btn text-ligth">Lire plus</a>
 
-          <a href="/author/<%=gossip.user.id%>" class="card-link">Posté par
+          Posté par <a href="/author/<%=gossip.user.id%>" class="card-link">
             <%=gossip.user.first_name%></a>
         </div>
       </div>
