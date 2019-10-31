@@ -14,13 +14,37 @@
  *= require_self
  */
 
+ h1, h2, h5, .navbar-brand{
+  font-family: 'Carter One', cursive !important;
+}
+
+.navbar{
+  background: linear-gradient(60deg,rgba(230,100,101,1),rgba(145,152,229,0.4));
+}
+
+.nav-link, .navbar-brand {
+  font-size: 1.3em !important;
+}
+
 .contain {
   padding: 2%;
 }
 
-.read-btn {
+.read-btn, .btn-primary {
   padding: 8px;
-  background: #e66465;
+  background: #e66465 !important;
   border-radius: 4px;
   color: white;
+  border-color: #e66465 !important;
+}
+
+.btn-secondary {
+  background-color: white !important;
+  color: #e66465 !important;
+  border: solid 2px white !important;
+  margin-top: 1%;
+}
+
+.card-link {
+  color: #9198e5 !important;
 }

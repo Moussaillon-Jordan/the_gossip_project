@@ -1,0 +1,62 @@
+<% if @user !=nil%>
+  <div class="alert alert-danger m-0 p-3 text-center" role="alert">
+      <% @user.errors.each do |attr, msg|  %>
+      <%= attr %> <%= msg %>
+    <% end %>
+  </div>
+  <% end %>
+
+
+
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+              <div class="card-img-left d-none d-md-flex">
+                 <!-- Background image for card set in CSS! -->
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">S'inscrire</h5>
+                <%= form_tag url_for(action: 'create'), method: "post" do %>
+                    <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+
+                    <%= label_tag 'Prénom' %>
+                    <div class="form-label-group">
+                      <%= text_field_tag 'subscribe_first_name', value = nil, placeholder:'Jean-Michel', class:'form-control' %>
+                    </div>
+
+                    <%= label_tag 'Nom' %>
+                  <div class="form-label-group">
+                    <%= text_field_tag 'subscribe_last_name', value = nil, class:'form-control' %>
+                  </div>
+
+                  <%= label_tag 'Age' %>
+                  <div class="form-label-group">
+                    <%= text_field_tag 'subscribe_age', value = nil, class:'form-control' %>
+                  </div>
+
+                  <hr>
+
+                  <%= label_tag 'Email' %>
+                  <div class="form-label-group">
+                    <%= text_field_tag 'subscribe_email', value = nil, class:'form-control' %>
+                  </div>
+
+                  <%= label_tag 'Code Secret' %>
+                  <div class="form-label-group">
+                    <%= password_field_tag 'subscribe_password', value = nil, class:'form-control' %>
+                  </div>
+
+                  <div class="form-label-group">
+                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                    <label for="inputConfirmPassword">Confirm password</label>
+                  </div>
+                  <div class="text-center">
+                  <%= submit_tag "S'inscrire", class: 'btn btn-primary btn-lg' %>
+                  </div>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

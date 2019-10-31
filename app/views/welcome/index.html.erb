@@ -2,10 +2,12 @@
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
-        <h1 class="font-weight-light display-4 text-light">Bienvenue,  <%= @first_name %>
+        <h1 class="font-weight-light display-4 text-light">The B*tching Project
 
         </h1>
-        <p class="lead text-light">En manque de potins ? tu vas être servi.e !</p>
+        <p class="lead text-light">En manque de Gossips ? tu vas être servi.e !</p>
+        <a href="/gossips/new"><button type="button" class="btn btn-lg btn-secondary">Ajouter un potin</button></a>
+
       </div>
     </div>
   </div>
@@ -27,7 +29,7 @@
           <p class="card-text">
             <%= gossip.content[0..30] %>...
           </p>
-          <a href="/gossip/<%=gossip.id%>" class="card-link read-btn text-ligth">Lire plus</a>
+          <a href="/gossips/<%=gossip.id%>" class="card-link read-btn text-ligth">Lire plus</a>
 
           <a href="/author/<%=gossip.user.id%>" class="card-link">Posté par
             <%=gossip.user.first_name%></a>
@@ -35,5 +37,4 @@
       </div>
     </div>
   <% end %>
-
 </div>
