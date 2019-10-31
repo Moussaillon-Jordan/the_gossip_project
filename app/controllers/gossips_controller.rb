@@ -4,7 +4,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(title: params[:gossip_title], content: params[:gossip_content], user_id: 1)
+    @gossip = Gossip.new(title: params[:gossip_title], content: params[:gossip_content], user_id: session[:user_id])
     if @gossip.save
       render 'index'
     else

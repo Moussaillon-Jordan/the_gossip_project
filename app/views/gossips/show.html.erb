@@ -7,7 +7,7 @@
         <h5 class="card-title">B*tché par
           <a href="/author/ <%= Gossip.all[params[:id].to_i-1].user.id %>"> <%= Gossip.all[params[:id].to_i-1].user.first_name %></a></h5>
         <p class="card-text"><%= Gossip.all[params[:id].to_i-1].content %></p>
-        <p class="card-text">Où ça ? à <%= Gossip.find(params[:id].to_i-2).user.city.name %></p>
+        <p class="card-text">Où ça ? à <%= Gossip.find(params[:id].to_i+1).user.city.name %></p>
         <a href="#" class="btn btn-primary">Like</a>
       </div>
       <div class="card-footer text-muted">
@@ -15,33 +15,4 @@
       </div>
     </div>
 
-    <div class="card text-center m-5" style="width: 40%; display: inline-block;">
-      <div class="card-header">
-        <h2><%= Gossip.all[params[:id].to_i-2].title %></h2>
-      </div>
-      <div class="card-body p-5">
-        <h5 class="card-title">B*tché par
-          <a href="/author/ <%= Gossip.all[params[:id].to_i-2].user.id %>"> <%= Gossip.all[params[:id].to_i-2].user.first_name %></a></h5>
-          <p class="card-text">Où ça ? à <%= Gossip.find(params[:id].to_i-2).user.city.name %></p>
-      </div>
-      <a href="/gossips/<%= params[:id].to_i-2%>" class="btn btn-primary mb-5">Lire le Gossip</a>
-      <div class="card-footer text-muted">
-        Publié <%= Gossip.all[params[:id].to_i-2].created_at.strftime('%a %d %b') %>
-      </div>
-    </div>
-
-    <div class="card text-center m-5" style="width: 40%; display: inline-block;">
-      <div class="card-header">
-        <h2><%= Gossip.all[params[:id].to_i].title %></h2>
-      </div>
-      <div class="card-body p-5">
-        <h5 class="card-title">B*tché par
-          <a href="/author/ <%= Gossip.all[params[:id].to_i].user.id %>"> <%= Gossip.all[params[:id].to_i].user.first_name %> </a></h5>
-          <p class="card-text">Où ça ? à <%= Gossip.find(params[:id]).user.city.name %></p>
-      </div>
-      <a href="/gossips/<%= params[:id]%>" class="btn btn-primary mb-5">Lire le Gossip</a>
-      <div class="card-footer text-muted">
-        Publié <%= Gossip.all[params[:id].to_i].created_at.strftime('%a %d %b') %>
-      </div>
-    </div>
   </div>

@@ -9,7 +9,7 @@ class AuthorController < ApplicationController
   def create
     @user = User.new(first_name: params[:subscribe_first_name], last_name: params[:subscribe_last_name], age: params[:subscribe_age], city: params[:subscribe_city], email: params[:subscribe_email], password: params[:subscribe_password] )
     if @user.save
-      redirect '/'
+      redirect_to welcome_path(:id => params[:subscribe_first_name].capitalize)
     else
       render 'new'
     end
