@@ -1,3 +1,7 @@
+<div class="alert text-center" role="alert">
+  <%= flash[:danger] %>
+</div>
+
 <div class="container">
         <div class="row">
           <div class="col-lg-10 col-xl-9 mx-auto">
@@ -22,14 +26,13 @@
                     <%= password_field_tag 'connect_password', value = nil, class:'form-control' %>
                   </div>
 
-                  <div class="form-label-group">
-                    <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
-                    <label for="inputConfirmPassword">Confirm password</label>
-                  </div>
-                  <div class="text-center">
+                  <div class="text-center pt-3">
                   <%= submit_tag "Connexion", class: 'btn btn-primary btn-lg' %>
                   </div>
                   <% end %>
+
+                  <div class="text-right pt-4"><a href="/author/new">Pas encore inscrit ? Par ici !</a></div>
+
               </div>
             </div>
           </div>

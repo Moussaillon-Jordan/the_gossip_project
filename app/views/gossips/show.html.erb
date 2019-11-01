@@ -1,18 +1,56 @@
-  <div class="px-5">
-    <div class="card text-center m-5">
-      <div class="card-header">
-        <h1><%= Gossip.all[params[:id].to_i-1].title %></h1>
-      </div>
-      <div class="card-body p-5">
-        <h5 class="card-title">B*tché par
-          <a href="/author/ <%= Gossip.all[params[:id].to_i-1].user.id %>"> <%= Gossip.all[params[:id].to_i-1].user.first_name %></a></h5>
-        <p class="card-text"><%= Gossip.all[params[:id].to_i-1].content %></p>
-        <p class="card-text">Où ça ? à <%= Gossip.find(params[:id].to_i+1).user.city.name %></p>
-        <a href="#" class="btn btn-primary">Like</a>
-      </div>
-      <div class="card-footer text-muted">
-        <%= Gossip.all[params[:id].to_i-1].created_at.strftime('%a %d %b') %>
-      </div>
+<div class="p-5">
+  <div class="card show-gossip-card text-center w-50">
+    <div class="card-header">
+      <h1><%= Gossip.find(params[:id]).title %></h1>
     </div>
+    <div class="card-body p-5">
+      <h5 class="card-title">B*tché par
+        <a href="/author/ <%= Gossip.find(params[:id]).user.id %>">
+          <%= Gossip.find(params[:id]).user.first_name %></a>
+      </h5>
+      <p class="card-text"><%= Gossip.find(params[:id]).content %></p>
+      <p class="card-text">Où ça ? à
+        <%= Gossip.find(params[:id].to_i).user.city.name %></p>
+      <a href="#" class="btn btn-primary">Like</a>
+      <%= link_to "Modifier", edit_gossip_path(:id => params[:id].to_i), class: 'btn btn-primary' %>
+      <%= link_to "Effacer Gossip", @gossip, method: "delete", class: 'btn btn-primary' %>
+
+    </div>
+    <div class="card-footer text-muted">
+      <%= Gossip.find(params[:id]).created_at.strftime('%a %d %b') %>
+    </div>
+  </div>
+
+  <h3 class="mt-5">Commentaires :</h3>
+  <div class="card mt-5 w-50">
+    <ul class="list-group list-group-flush">
+
+      <% Gossip.find(params[:id]).commentaires.each do |comment| %>
+        <li class="list-group-item">
+          <p><%= comment.content %></p>
+          <p>
+            <a href="/author/<%=comment.user.id%>" class="card-link">
+              <%=comment.user.first_name%></a>
+            <span class="float-right"><%= Commentaire.find(params[:id]).created_at.strftime('%a %d %b') %></span>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="card-body">
+    <%= form_tag gossip_commentaire_index_path(@gossip.id), method: "post" do %>
+    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+    <input type="hidden" name="gossip_id" value="params['gossip_id']">
+
+    <br/>
+
+    <%= label_tag 'Ajouter un commentaire' %>
+    <%= text_area_tag 'comment_content', value = nil%>
+
+    <%= submit_tag "Commenter", class: 'btn btn-primary' %>
 
   </div>
+
+  <% end %>
+</div>

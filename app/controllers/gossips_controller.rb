@@ -6,6 +6,7 @@ class GossipsController < ApplicationController
   def create
     @gossip = Gossip.new(title: params[:gossip_title], content: params[:gossip_content], user_id: session[:user_id])
     if @gossip.save
+      flash[:notice] = 'Votre Gossip a bien été enregistré'
       render 'index'
     else
       render 'new'
@@ -28,6 +29,7 @@ class GossipsController < ApplicationController
   def update
     @gossip = Gossip.find(params[:id])
     if @gossip.update(title: params[:gossip_title], content: params[:gossip_content])
+      flash[:success] = 'Votre Gossip a bien été modifié'
       redirect_to @gossip
     else
       render :edit
@@ -38,6 +40,7 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
     @gossip.destroy
     @gossips = Gossip.all
-    render 'gossip/index'
+    flash[:danger] = 'Votre Gossip a bien été effacé'
+    render 'gossips/index'
   end
 end

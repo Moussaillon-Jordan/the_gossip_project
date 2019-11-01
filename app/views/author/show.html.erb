@@ -1,30 +1,34 @@
+<div class="alert alert-success" role="alert">
+  <%= flash[:success] %>
+</div>
+
 <div class="contain">
-  <h1 class="py-1">Profil du B*tcher numéro <%= User.all[params[:id].to_i-1].id %> </h1>
+  <h1 class="py-1">Profil du B*tcher numéro <%= User.find(params[:id]).id %> </h1>
 
   <div class="" style="display: inline-block;">
     <p>
       <span class="display-5">Prénom:</span>
-      <%= User.all[params[:id].to_i-1].first_name %>
+      <%= User.find(params[:id]).first_name %>
     </p>
     <p>
       <span class="display-5">Nom:</span>
-      <%= User.all[params[:id].to_i-1].last_name %>
+      <%= User.find(params[:id]).last_name %>
     </p>
     <p>
       <span class="display-5">Age:</span>
-      <%= User.all[params[:id].to_i-1].age %>
+      <%= User.find(params[:id]).age %>
     </p>
     <p>
       <span class="display-5">Email:</span>
-      <%= User.all[params[:id].to_i-1].email %>
+      <%= User.find(params[:id]).email %>
     </p>
   <p>
     <span class="display-5">Bio:</span>
-    <%= User.all[params[:id].to_i-1].description %>
+    <%= User.find(params[:id]).description %>
   </p>
   <p>
     <span class="display-5">Situé à:</span>
-    <%= User.all[params[:id].to_i-1].city.name %>
+    <%= User.find(params[:id]).city.name %>
   </p>
 
 </div>
@@ -33,7 +37,7 @@
   <div class="card text-center">
     <div class="card-header bg-pink"><h5>Serial B*tcher</h5></div>
     <div class="card-body">
-      <h5 class="card-title"> <%= User.all[params[:id].to_i-1].gossips.count %> </h5>
+      <h5 class="card-title"> <%= User.find(params[:id]).gossips.count %> </h5>
       <p class="card-text">Gossip(s) rapporté(s)</p>
     </div>
   </div>

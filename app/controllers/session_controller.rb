@@ -13,7 +13,7 @@ class SessionController < ApplicationController
       redirect_to welcome_path(:id => User.find_by(id: session[:user_id]).first_name)
 
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'Combinaison Email/Code secret incorrecte. Réessayez'
       render 'new'
     end
   end
